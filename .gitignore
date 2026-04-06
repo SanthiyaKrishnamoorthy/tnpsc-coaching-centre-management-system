@@ -1,0 +1,96 @@
+# Compiled files
+*.class
+target/
+
+# IntelliJ IDEA specific
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+out/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/contentModel.xml
+.idea/**/dataSources/
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+.idea/**/gradle.xml
+.idea/**/libraries
+.idea/modules.xml
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/jarRepositories.xml
+.idea/misc.xml
+.idea/vcs.xml
+.idea/workspace.xml
+
+# Eclipse files (in case you ever use it)
+.settings/
+.project
+.classpath
+
+# VS Code files
+.vscode/
+*.code-workspace
+
+# Maven wrapper
+.mvn/
+mvnw
+mvnw.cmd
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Application specific
+application-local.properties
+application-dev.properties
+*.db
+*.h2.db
+*.lock
+
+# Test files
+test-output/
+target/surefire-reports/
+target/failsafe-reports/
+
+# Backup files
+*.bak
+*.old
+*.orig
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Spring Boot DevTools (optional)
+.~~*.java
+
+# Heap dumps
+*.hprof
+*.heap
+
+# Secret files (if any)
+*.pem
+*.key
+*.p12
+*.jks
+secrets/

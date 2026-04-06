@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TNPSC Coaching Dashboard</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        input, button { margin: 5px; padding: 8px; }
+        pre { background: #f4f4f4; padding: 10px; }
+        .endpoint { border: 1px solid #ddd; margin: 10px 0; padding: 10px; }
+    </style>
+</head>
+<body>
+<h1>TNPSC Coaching API Dashboard</h1>
+
+<div class="endpoint">
+    <h3>1. Login</h3>
+    <input id="email" placeholder="Email" value="admin@test.com">
+    <input id="password" type="password" placeholder="Password" value="password123">
+    <button onclick="login()">Login</button>
+    <div id="tokenDisplay"></div>
+</div>
+
+<div class="endpoint">
+    <h3>2. View Courses</h3>
+    <button onclick="getCourses()">Get All Courses</button>
+    <div id="courses"></div>
+</div>
+
+<div class="endpoint">
+    <h3>3. Create Course (Admin)</h3>
+    <input id="courseName" placeholder="Course Name" value="New Course">
+    <input id="description" placeholder="Description" value="Test Description">
+    <input id="price" placeholder="Price" value="999">
+    <button onclick="createCourse()">Create Course</button>
+</div>
+
+<div class="endpoint">
+    <h3>4. Check Auth Status</h3>
+    <button onclick="checkAuth()">Check Authentication</button>
+</div>
+
+<pre id="result"></pre>
+
+<script>
+    let token = '';
+
+    async function login() {
+        const response = await fetch('/auth/login', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
+            })
+        });
+        const data = await response.json();
+        token = data.token;
+        document.getElementById('tokenDisplay').innerHTML =
+            `<strong>Token:</strong> ${token.substring(0, 50)}...`;
+        document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+    }
+
+    async function getCourses() {
+        const response = await fetch('/student/courses', {
+            headers: {'Authorization': 'Bearer ' + token}
+        });
+        const data = await response.json();
+        document.getElementById('courses').innerHTML =
+            `<strong>Courses:</strong> ${JSON.stringify(data, null, 2)}`;
+    }
+
+    async function createCourse() {
+        const response = await fetch('/admin/courses', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify({
+                courseName: document.getElementById('courseName').value,
+                description: document.getElementById('description').value,
+                price: parseFloat(document.getElementById('price').value)
+            })
+        });
+        const data = await response.json();
+        document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+    }
+
+    async function checkAuth() {
+        const response = await fetch('/test/auth-check', {
+            headers: {'Authorization': 'Bearer ' + token}
+        });
+        const data = await response.json();
+        document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+    }
+</script>
+</body>
+</html>
