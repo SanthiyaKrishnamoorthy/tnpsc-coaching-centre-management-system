@@ -129,7 +129,6 @@ spring.datasource.url=jdbc:mysql://localhost:3306/tnpsc_db?useSSL=false&serverTi
 spring.datasource.username=YOUR_MYSQL_USERNAME
 spring.datasource.password=YOUR_MYSQL_PASSWORD
 ```
-
 > Tip: Ensure your `application.properties` is set to read `application-local.properties` if you are using profiles, or manually configure accordingly.
 
 ### Step 4: Build the application
@@ -138,7 +137,6 @@ spring.datasource.password=YOUR_MYSQL_PASSWORD
 ```bash
 mvnw.cmd clean install
 ```
-
 **Mac/Linux:**
 ```bash
 ./mvnw clean install
