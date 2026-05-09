@@ -381,7 +381,6 @@ tnpsc-coaching-centre-management-system/
 │   │       └── application.properties.template
 │   └── test/
 ├── pom.xml
-├── LICENSE
 └── README.md
 ```
 
@@ -484,7 +483,6 @@ Add to `application.properties`:
 logging.level.org.springframework.security=DEBUG
 logging.level.com.tnpsc.coaching=DEBUG
 ```
-
 ---
 
 ## 🚀 Future Enhancements
@@ -499,7 +497,6 @@ logging.level.com.tnpsc.coaching=DEBUG
 - Docker support
 - Unit + integration tests (JUnit/Mockito)
 - Redis caching
-
 ---
 
 ## 👩‍💻 Author
